@@ -22,13 +22,20 @@ body {
     height: 480px;
     overflow: hidden;
     position: relative;
-    background: white;
 }
 
 #content {
     width: 320px;
     height: 480px;
     position: relative;
+}
+#header-text {
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 12px;
 }
 #bg {
     position: absolute;
@@ -111,12 +118,25 @@ body {
     top: -90px;
 }
 #text-for-drop {
+    opacity: 1;
     position: absolute;
     bottom: -30px;
-    right: 20px;
+    right: 15px;
     font-size: 10px;
     font-weight: lighter;
     color: #242526;
+    animation-name: textAnimation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: textAnimation;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: forwards;
 }
 #text-for-drop .with-margin {
     margin-left: 15px;
@@ -147,7 +167,7 @@ body {
     color: #e7e7e7;
     font-family: "Dax";
     font-weight: lighter;
-    font-size: 4px;
+    font-size: 5px;
 }
 
 #bottle, #shining-bottle {
@@ -178,4 +198,22 @@ body {
     left: 28px;
     top: 225px;
     opacity: 0;
+}
+
+@keyframes textAnimation {
+    75% {
+        right: 22px;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes textAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

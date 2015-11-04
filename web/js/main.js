@@ -134,11 +134,12 @@ var testunit = function () {
 
     app.tracker('CTR', 'test');
     app.tracker('E','test','name');
-    
+
     app.linkOpener('https://www.facebook.com/LifebuoyMalaysia');
 };
 
 var msgObj = {
+    headerText : 'baharu',
     tabletTextOnRegGerms : 'Kuman sekarang',
     tabletTextOnBlueGerms : 'Kuman zaman dulu',
     textForDrop : '<< Klik untuk<br/><span class="with-margin">ketahui</span><br/><span class="with-margin">rahsia kita!</span>',
@@ -166,6 +167,7 @@ var LifeBuoyAd = function () {
 LifeBuoyAd.prototype.renderFirstScreen = function () {
     var self = this;
     var content = $('<div id="content"></div>');
+    var headerText = $('<div id="header-text"></div>');
     var bg = $('<div id="bg"></div>');
     var leaves = $('<div id="leaves"></div>');
     var drop = $('<div id="drop"></div>');
@@ -177,6 +179,9 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
     var greyText = $('<div id="grey-text"></div>');
 
     $(this.sdk.contentTag).append(content);
+
+    headerText.html(msgObj.headerText);
+    content.append(headerText);
 
     content.append(leaves);
     leaves.append(textForDrop);
@@ -203,7 +208,7 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
 
         $(this).animate({
             top: '0'
-        }, 5000, createShiningDrop);
+        }, 1000, createShiningDrop);
     });
 
     function createShiningDrop () {
@@ -242,7 +247,7 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
             shiningBottle.animate({
                 opacity: '1'
             },1000, null);
-        }, 5000);
+        }, 10);
     }
 };
 
