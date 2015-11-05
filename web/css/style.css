@@ -22,6 +22,7 @@ body {
     height: 480px;
     overflow: hidden;
     position: relative;
+    background: white;
 }
 
 #content {
