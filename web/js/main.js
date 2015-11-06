@@ -142,7 +142,6 @@ var msgObj = {
     headerText : 'baharu',
     tabletTextOnRegGerms : 'Kuman sekarang',
     tabletTextOnBlueGerms : 'Kuman zaman dulu',
-    textForDrop : '<< Klik untuk<br/><span class="with-margin">ketahui</span><br/><span class="with-margin">rahsia kita!</span>',
     redText : '10x perlindungan kuman*<br/>Lebih penjagaan kulit',
     greyText : 'dengan activ naturol shield',
     footerText : '*Berbanding sabun biasa tanpa bahan aktif.<br/>Berdasarkan ujian makmal terhadap penunjuk organisma.'
@@ -171,21 +170,23 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
     var bg = $('<div id="bg"></div>');
     var leaves = $('<div id="leaves"></div>');
     var drop = $('<div id="drop"></div>');
-    var textForDrop = $('<div id="text-for-drop"></div>');
+    var btnForDrop = $('<div id="btn-for-drop"></div>');
     var people = $('<div id="people"></div>');
     var tablet = $('<div id="tablet"></div>');
     var footer = $('<div id="footer"></div>');
     var redText = $('<div id="red-text"></div>');
     var greyText = $('<div id="grey-text"></div>');
+    var pack = $('<div id="pack"></div>');
 
     $(this.sdk.contentTag).append(content);
 
     headerText.html(msgObj.headerText);
     content.append(headerText);
 
+    content.append(pack);
+
     content.append(leaves);
-    leaves.append(textForDrop);
-    textForDrop.html(msgObj.textForDrop);
+    content.append(btnForDrop);
 
     content.append(bg);
     content.append(drop);
@@ -203,10 +204,11 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
     footer.html(msgObj.footerText);
     content.append(footer);
 
-    drop.click(function () {
-        textForDrop.remove();
-
-        $(this).animate({
+    $(this.sdk.contentTag).on('click', function () {
+        btnForDrop.animate({
+            opacity: '0'
+        }, 1000, null);
+        drop.animate({
             top: '0'
         }, 1000, createShiningDrop);
     });
@@ -228,20 +230,23 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
             opacity: '1'
         },1000, null);
 
+        $(self.sdk.contentTag).off('click');
+
         setTimeout(function () {
             people.animate({
                 opacity: '0'
             },1000, null);
 
-            var btn = $('<a href="#" target="_blank" id="btn"></a>');
+            var btn = $('<a href="https://www.youtube.com/watch?v=QYzp3SKsw_8" target="_blank" id="btn"></a>');
             content.append(btn);
             btn.animate({
                 opacity: '1'
             },1000, null);
-            $(btn).on('click', function (e) {
+            $(self.sdk.contentTag).on('click', function (e) {
                 e.preventDefault();
-                self.sdk.linkOpener('https://www.facebook.com/LifebuoyMalaysia');
-            })
+                self.sdk.tracker('CTR', 'ly_youtubelp');
+                self.sdk.linkOpener('https://www.youtube.com/watch?v=QYzp3SKsw_8');
+            });
             var shiningBottle = $('<div id="shining-bottle"></div>');
             content.append(shiningBottle);
             shiningBottle.animate({
@@ -267,16 +272,20 @@ LifeBuoyAd.prototype.preloadImages = function (parent) {
     'var pic8 = new Image();' +
     'var pic9 = new Image();' +
     'var pic10 = new Image();' +
+    'var pic11 = new Image();' +
+    'var pic12 = new Image();' +
     'pic1.src="img/bg1.png";' +
     'pic2.src="img/bottle1.png";' +
     'pic3.src="img/bottle-pure1.png";' +
-    'pic4.src="img/btn1.png";' +
+    'pic4.src="img/btn-first-screen.png";' +
     'pic5.src="img/doctor1.png";' +
     'pic6.src="img/drop1.png";' +
     'pic7.src="img/leaves1.png";' +
     'pic8.src="img/people1.png";' +
     'pic9.src="img/shining-drop1.png";' +
-    'pic10.src="img/tablet1.png";';
+    'pic10.src="img/tablet1.png";' +
+    'pic11.src="img/btn-second-screen.png";' +
+    'pic12.src="img/pack.png";';
 
     script.innerHTML = str;
 
