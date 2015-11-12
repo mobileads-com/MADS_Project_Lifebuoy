@@ -16,7 +16,7 @@ var mads = function () {
     } else {
         this.custTracker = [];
     }
-
+    
     /* Unique ID on each initialise */
     this.id = this.uniqId();
 
@@ -65,11 +65,17 @@ mads.prototype.tracker = function (tt, type, name) {
 
     if ( typeof this.custTracker != 'undefined' && this.custTracker != '' && this.tracked.indexOf(name) == -1 ) {
         
-        if (type == 'MW_CLICK_URL') {
+        for (var i = 0; i < 3; i++) {
+                
+            if ((i == 1 && type == 'MW_CLICK_URL') || (i == 2 && type != 'MW_CLICK_URL')){
+                continue;
+            }
+            
             var img = document.createElement('img');
 
             /* Insert Macro */
-            var src = this.custTracker[2];
+            var src = this.custTracker[i].replace('{{type}}', type);
+            src = src.replace('{{tt}}', tt);
             /* */
             img.src = src + '&' + this.id;
 
@@ -77,21 +83,6 @@ mads.prototype.tracker = function (tt, type, name) {
             this.bodyTag.appendChild(img);
 
             this.tracked.push(name);
-        } else {
-            for (var i = 0; i < 2; i++) {
-                var img = document.createElement('img');
-
-                /* Insert Macro */
-                var src = this.custTracker[i].replace('{{type}}', type);
-                src = src.replace('{{tt}}', tt);
-                /* */
-                img.src = src + '&' + this.id;
-
-                img.style.display = 'none';
-                this.bodyTag.appendChild(img);
-
-                this.tracked.push(name);
-            }
         }
     }
 };
