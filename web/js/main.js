@@ -64,12 +64,12 @@ mads.prototype.tracker = function (tt, type, name) {
     name = name || type;
 
     if ( typeof this.custTracker != 'undefined' && this.custTracker != '' && this.tracked.indexOf(name) == -1 ) {
-        for (var i = 0; i < this.custTracker.length; i++) {
+        
+        if (type == 'MW_CLICK_URL') {
             var img = document.createElement('img');
 
             /* Insert Macro */
-            var src = this.custTracker[i].replace('{{type}}', type);
-            src = src.replace('{{tt}}', tt);
+            var src = this.custTracker[2];
             /* */
             img.src = src + '&' + this.id;
 
@@ -77,6 +77,21 @@ mads.prototype.tracker = function (tt, type, name) {
             this.bodyTag.appendChild(img);
 
             this.tracked.push(name);
+        } else {
+            for (var i = 0; i < 2; i++) {
+                var img = document.createElement('img');
+
+                /* Insert Macro */
+                var src = this.custTracker[i].replace('{{type}}', type);
+                src = src.replace('{{tt}}', tt);
+                /* */
+                img.src = src + '&' + this.id;
+
+                img.style.display = 'none';
+                this.bodyTag.appendChild(img);
+
+                this.tracked.push(name);
+            }
         }
     }
 };
@@ -205,6 +220,8 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
     content.append(footer);
 
     $(this.sdk.contentTag).on('click', function () {
+        self.sdk.tracker('E', 'MW_CLICK_URL');
+        
         btnForDrop.animate({
             opacity: '0'
         }, 1000, null);
