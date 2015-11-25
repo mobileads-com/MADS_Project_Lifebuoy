@@ -1,0 +1,219 @@
+@font-face {
+    font-family: "Dax";
+    src: url(fonts/Dax.ttf);
+}
+
+@font-face {
+    font-family: "Dax Medium";
+    src: url(fonts/DaxMedium.ttf);
+}
+
+body {
+    width: 480px;
+    height: 320px;
+    margin: 0;
+    padding: 0;
+    font-family: "Dax Medium";
+    overflow: hidden;
+}
+
+#rma-widget {
+    width: 480px;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    background: white;
+}
+
+#pack {
+    width: 400px;
+    height: 218px;
+    background: url("../img/pack.png") no-repeat;
+    background-size: contain;
+    z-index: 3;
+    position: absolute;
+    left: -65px;
+    bottom: -40px;
+}
+
+#content {
+    width: 320px;
+    height: 480px;
+    position: relative;
+    padding-bottom: 0 !important;
+}
+#header-text {
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 12px;
+}
+#bg {
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    width: 380px;
+    height: 500px;
+    background: url("../img/bg1.png") no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
+#drop {
+    z-index: 1;
+    position: absolute;
+    right: 35px;
+    top: -145px;
+    width: 64px;
+    height: 226px;
+    background: url("../img/drop1.png") no-repeat;
+    background-size: contain;
+}
+#shining-drop {
+    z-index: 1;
+    position: absolute;
+    right: 8px;
+    top: 140px;
+    width: 141px;
+    height: 142px;
+    background: url("../img/shining-drop1.png") no-repeat;
+    background-size: contain;
+}
+#people, #doctor {
+    position: absolute;
+    right: 60px;
+    top: 135px;
+    width: 420px;
+    height: 357px;
+    background-size: contain;
+}
+#people {
+    background: url("../img/doctor1.png") no-repeat;
+}
+#doctor {
+    background: url("../img/doctor1.png") no-repeat;
+}
+#tablet {
+    position: absolute;
+    right: 0;
+    top: 230px;
+    width: 194px;
+    height: 175px;
+    background: url("../img/tablet1.png") no-repeat;
+    background-size: contain;
+}
+#tablet p {
+    position: absolute;
+    color: #e7e7e7;
+    font-family: "Dax";
+    font-weight: lighter;
+    font-size: 11px;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+#tablet .on-blue-germs {
+    top: 25px;
+    left: 20px;
+}
+#tablet .on-red-germs {
+    top: 62px;
+    right: 28px;
+}
+
+#leaves {
+    height: 150px;
+    width: 170px;
+    background: url("../img/leaves1.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: -15px;
+    top: -90px;
+}
+#btn-for-drop {
+    opacity: 1;
+    cursor: pointer;
+    height: 45px;
+    width: 125px;
+    position: absolute;
+    left: 20px;
+    top: 215px;
+    background: url("../img/btn-first-screen.png") no-repeat;
+    background-size: contain;
+}
+
+#grey-text {
+    position: absolute;
+    top: 193px;
+    left: 20px;
+    color: #585a5d;
+    font-size: 12px;
+    line-height: 12px;
+}
+#red-text {
+    position: absolute;
+    top: 155px;
+    left: 20px;
+    color: #e1202b;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#footer {
+    z-index: 1;
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    color: #e7e7e7;
+    font-family: "Dax";
+    font-weight: lighter;
+    font-size: 5px;
+}
+
+#bottle, #shining-bottle {
+    width: 205px;
+    height: 311px;
+    background-size: contain;
+    position: absolute;
+    right: -15px;
+    top: 100px;
+    opacity: 0;
+}
+#bottle {
+    background: url("../img/bottle-pure1.png") no-repeat;
+}
+#shining-bottle {
+    background: url("../img/bottle1.png") no-repeat;
+}
+
+#btn {
+    z-index: 1;
+    display: block;
+    text-decoration: none;
+    width: 125px;
+    height: 45px;
+    background: url("../img/btn-second-screen.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 20px;
+    top: 220px;
+    opacity: 0;
+}
+
+@keyframes textAnimation {
+    75% {
+        right: 22px;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes textAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
