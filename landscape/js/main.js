@@ -148,7 +148,7 @@ var msgObj = {
     headerText : 'baharu',
     tabletTextOnRegGerms : 'Kuman sekarang',
     tabletTextOnBlueGerms : 'Kuman zaman dulu',
-    redText : '10x perlindungan kuman*<br/>Lebih penjagaan kulit',
+    redText : '<span class="first">10x perlindungan kuman*</span><br/><span class="second">Lebih penjagaan kulit</span>',
     greyText : 'dengan activ naturol shield',
     footerText : '*Berbanding sabun biasa tanpa bahan aktif.<br/>Berdasarkan ujian makmal terhadap penunjuk organisma.'
 };
@@ -217,7 +217,7 @@ LifeBuoyAd.prototype.renderFirstScreen = function () {
             opacity: '0'
         }, 1000, null);
         drop.animate({
-            top: '0'
+            top: '-122'
         }, 1000, createShiningDrop);
     });
 
@@ -282,13 +282,13 @@ LifeBuoyAd.prototype.preloadImages = function (parent) {
     'var pic10 = new Image();' +
     'var pic11 = new Image();' +
     'var pic12 = new Image();' +
-    'pic1.src="img/bg1.png";' +
+    'pic1.src="img/bg-landscape.png";' +
     'pic2.src="img/bottle1.png";' +
     'pic3.src="img/bottle-pure1.png";' +
     'pic4.src="img/btn-first-screen.png";' +
-    'pic5.src="img/doctor1.png";' +
+    'pic5.src="img/doctor.png";' +
     'pic6.src="img/drop1.png";' +
-    'pic7.src="img/leaves1.png";' +
+    'pic7.src="img/leaves-border.png";' +
     'pic8.src="img/people1.png";' +
     'pic9.src="img/shining-drop1.png";' +
     'pic10.src="img/tablet1.png";' +
