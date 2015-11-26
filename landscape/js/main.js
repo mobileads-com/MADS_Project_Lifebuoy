@@ -71,6 +71,10 @@ mads.prototype.tracker = function (tt, type, name) {
                 continue;
             }
             
+            if (typeof this.custTracker[i] == 'undefined') {
+                continue;
+            }
+            
             var img = document.createElement('img');
 
             /* Insert Macro */
