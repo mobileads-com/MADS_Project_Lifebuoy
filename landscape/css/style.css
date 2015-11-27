@@ -31,14 +31,13 @@ body:after{
 }
 
 #pack {
-    width: 260px;
-    height: 150px;
+    width: 102px;
+    height: 109px;
     background: url("../img/pack.png") no-repeat;
     background-size: contain;
     z-index: 3;
     position: absolute;
-    left: -51px;
-    bottom: 146px;
+    bottom: 160px;
 }
 
 #content {
