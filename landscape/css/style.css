@@ -17,6 +17,11 @@ body {
     overflow: hidden;
 }
 
+body:after{
+    display:none;
+    content: url(../img/bg-landscape.png) url(../img/bottle1.png) url(../img/bottle-pure1.png) url(../img/btn1.png) url(../img/btn-first-screen.png) url(../img/btn-second-screen.png) url(../img/doctor.png) url(../img/drop1.png) url(../img/leaves-border.png) url(../img/pack.png) url(../img/people1.png) url(../img/shining-drop1.png) url(../img/tablet1.png);
+}
+
 #rma-widget {
     width: 480px;
     height: 320px;
